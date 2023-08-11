@@ -87,8 +87,8 @@ extraEnv:
 
 command:
   enabled: true
-  value: ["/bin/sh"]
-  args: ["start-notebook.sh",  "--NotebookApp.token=''", "--NotebookApp.password=''"]
+  value: ["start-notebook.sh"]
+  args: ["--NotebookApp.token=''", "--NotebookApp.password=''"]
 
 nodeSelector:
   nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-4090"
@@ -96,3 +96,5 @@ nodeSelector:
 tolerations: []
 
 affinity: {}
+
+runtimeClassName: "nvidia"
