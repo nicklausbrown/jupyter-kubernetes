@@ -38,7 +38,8 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 30100
+  port: 8888
+  nodePort: 30100
 
 ingress:
   enabled: false
