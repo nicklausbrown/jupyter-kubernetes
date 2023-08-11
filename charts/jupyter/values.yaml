@@ -91,7 +91,7 @@ extraEnv:
 command:
   enabled: true
   value: ["start-notebook.sh"]
-  args: ["--IdentityProvider.token=", "--NotebookApp.password="]
+  args: ["--NotebookApp.token=", "--NotebookApp.password="]
 
 nodeSelector:
   nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-4090"
