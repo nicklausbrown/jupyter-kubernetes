@@ -53,6 +53,7 @@ spec:
             {{- end }}
           {{- if .Values.command.enabled }}
           command: {{ .Values.command.value }}
+          args: {{ .Values.command.args }}
           {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
