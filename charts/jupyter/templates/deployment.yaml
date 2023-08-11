@@ -56,6 +56,11 @@ spec:
           command: {{ .Values.command.value }}
           args: {{ .Values.command.args }}
           {{- end }}
+          {{- if .Values.rootUser }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsUser: 0
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
