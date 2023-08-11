@@ -36,14 +36,6 @@ spec:
             - name: jupyter
               containerPort: 8888
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /api/status
-              port: jupyter
-          readinessProbe:
-            httpGet:
-              path: /api/status
-              port: jupyter
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
