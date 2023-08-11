@@ -85,6 +85,8 @@ extraEnv:
     value: "yes"
   - name: GRANT_SUDO
     value: "yes"
+  - name: JUPYTER_PORT
+    value: "8888"
 
 command:
   enabled: true
