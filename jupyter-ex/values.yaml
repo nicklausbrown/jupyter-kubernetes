@@ -1,3 +1,4 @@
+
 image:
   repository: nickbrown1/jupyter-pytorch-gpu
   pullPolicy: IfNotPresent
@@ -6,7 +7,7 @@ image:
 service:
   type: NodePort
   port: 8888
-  nodePort: 30101
+  nodePort: 30100
 
 resources:
   limits:
@@ -17,4 +18,4 @@ resources:
     cpu: 12
 
 nodeSelector:
-  nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-3080-Ti"
+  nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-4090"
