@@ -1,21 +1,21 @@
+jupyter:
+  image:
+    repository: nickbrown1/jupyter-pytorch-gpu
+    pullPolicy: IfNotPresent
+    tag: "5034811708"
 
-image:
-  repository: nickbrown1/jupyter-pytorch-gpu
-  pullPolicy: IfNotPresent
-  tag: "5034811708"
+  service:
+    type: NodePort
+    port: 8888
+    nodePort: 30100
 
-service:
-  type: NodePort
-  port: 8888
-  nodePort: 30100
+  resources:
+    limits:
+      memory: 32Gi
+      nvidia.com/gpu: 2
+    requests:
+      memory: 8Gi
+      cpu: 12
 
-resources:
-  limits:
-    memory: 32Gi
-    nvidia.com/gpu: 2
-  requests:
-    memory: 8Gi
-    cpu: 12
-
-nodeSelector:
-  nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-4090"
+  nodeSelector:
+    nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-4090"

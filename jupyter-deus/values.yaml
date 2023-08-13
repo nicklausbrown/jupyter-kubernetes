@@ -1,20 +1,21 @@
-image:
-  repository: nickbrown1/jupyter-pytorch-gpu
-  pullPolicy: IfNotPresent
-  tag: "5034811708"
+jupyter:
+  image:
+    repository: nickbrown1/jupyter-pytorch-gpu
+    pullPolicy: IfNotPresent
+    tag: "5034811708"
 
-service:
-  type: NodePort
-  port: 8888
-  nodePort: 30101
+  service:
+    type: NodePort
+    port: 8888
+    nodePort: 30101
 
-resources:
-  limits:
-    memory: 32Gi
-    nvidia.com/gpu: 2
-  requests:
-    memory: 8Gi
-    cpu: 12
+  resources:
+    limits:
+      memory: 32Gi
+      nvidia.com/gpu: 2
+    requests:
+      memory: 8Gi
+      cpu: 12
 
-nodeSelector:
-  nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-3080-Ti"
+  nodeSelector:
+    nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-3080-Ti"
