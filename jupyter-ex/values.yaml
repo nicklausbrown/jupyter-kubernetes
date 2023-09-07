@@ -4,10 +4,26 @@ jupyter:
     pullPolicy: IfNotPresent
     tag: "5034811708"
 
-  service:
-    type: NodePort
-    port: 8888
-    nodePort: 30100
+  volumes:
+    - name: model-volume
+      hostPath:
+        readOnly: true
+        path: /mnt/nvme0/models/
+
+  volumeMounts:
+    - mountPath: /app/models
+      name: model-volume
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    hosts:
+      - host: jupyter-ex.k3s.nickbrown.ai
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: [ ]
 
   resources:
     limits:
