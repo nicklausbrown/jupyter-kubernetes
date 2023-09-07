@@ -58,7 +58,9 @@ ingress:
 
 resources: {}
 
-extraEnv:
+envVariables:
+  - name: JUPYTER_ENABLE_LAB
+    value: "yes"
   - name: PASSWORD
     value: ""
   - name: NB_USER
@@ -88,5 +90,3 @@ rootUser: true
 volumes: []
 
 volumeMounts: []
-
-envVariables: []
