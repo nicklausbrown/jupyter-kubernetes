@@ -85,3 +85,9 @@ affinity: {}
 runtimeClassName: "nvidia"
 
 rootUser: true
+
+volumes: []
+
+volumeMounts: []
+
+envVariables: []
