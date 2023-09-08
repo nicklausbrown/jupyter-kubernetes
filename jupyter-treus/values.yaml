@@ -1,0 +1,37 @@
+jupyter:
+  image:
+    repository: nickbrown1/jupyter-pytorch-gpu
+    pullPolicy: IfNotPresent
+    tag: "5034811708"
+
+  volumes:
+    - name: model-volume
+      hostPath:
+        readOnly: true
+        path: /mnt/nvme0/models/
+
+  volumeMounts:
+    - mountPath: /app/models
+      name: model-volume
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    hosts:
+      - host: jupyter-treus.k3s.nickbrown.ai
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: [ ]
+
+  resources:
+    limits:
+      memory: 32Gi
+      nvidia.com/gpu: 1
+    requests:
+      memory: 8Gi
+      cpu: 12
+
+  nodeSelector:
+    nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-3090-Ti"
