@@ -2,7 +2,7 @@ jupyter:
   image:
     repository: nickbrown1/jupyter-pytorch-gpu
     pullPolicy: IfNotPresent
-    tag: "5034811708"
+    tag: "6193767773"
 
   volumes:
     - name: model-volume
