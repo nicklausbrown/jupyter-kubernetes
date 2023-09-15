@@ -17,7 +17,7 @@ jupyter:
     - mountPath: /app/models
       name: model-volume
       # FIXME: make sure this is changed to the active user!!
-    - mountPath: /home/jovyan
+    - mountPath: /home/jovyan/work
       name: lab-volume
 
   ingress:
