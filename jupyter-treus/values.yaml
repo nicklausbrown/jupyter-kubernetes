@@ -2,7 +2,7 @@ jupyter:
   image:
     repository: nickbrown1/jupyter-pytorch-gpu
     pullPolicy: IfNotPresent
-    tag: "6193767773"
+    tag: "8135053194"
 
   volumes:
     - name: model-volume
@@ -33,7 +33,8 @@ jupyter:
 
   resources:
     limits:
-      memory: 32Gi
+      memory: 96Gi
+      nvidia.com/gpu: 1
     requests:
       memory: 8Gi
       cpu: 12
