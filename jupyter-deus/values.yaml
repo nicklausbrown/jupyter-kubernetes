@@ -2,20 +2,51 @@ jupyter:
   image:
     repository: nickbrown1/jupyter-pytorch-gpu
     pullPolicy: IfNotPresent
-    tag: "5034811708"
+    tag: "6193767773"
 
-  service:
-    type: NodePort
-    port: 8888
-    nodePort: 30101
+  volumes:
+    - name: model-volume
+      hostPath:
+        readOnly: true
+        path: /mnt/nvme0/models/
+    - name: lab-volume
+      hostPath:
+        path: /mnt/nvme0/k3s/apps/jupyter
+
+  volumeMounts:
+    - mountPath: /app/models
+      name: model-volume
+      # FIXME: make sure this is changed to the active user!!
+    - mountPath: /home/jovyan/work
+      name: lab-volume
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    hosts:
+      - host: jupyter-treus.k3s.nickbrown.ai
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls: [ ]
 
   resources:
     limits:
       memory: 32Gi
-      nvidia.com/gpu: 2
     requests:
       memory: 8Gi
       cpu: 12
+
+  envVariables:
+    - name: JUPYTER_ENABLE_LAB
+      value: "yes"
+    - name: PASSWORD
+      value: ""
+    - name: GRANT_SUDO
+      value: "yes"
+    - name: JUPYTER_PORT
+      value: "8888"
 
   nodeSelector:
     nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-3080-Ti"
