@@ -33,6 +33,7 @@ jupyter:
   resources:
     limits:
       memory: 96Gi
+      nvidia.com/gpu: 1
     requests:
       memory: 8Gi
       cpu: '12'
