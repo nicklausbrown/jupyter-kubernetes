@@ -3,6 +3,16 @@ entries:
   jupyter:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-04-20T01:43:08.351205004Z"
+    description: A Helm chart for Kubernetes
+    digest: 089cc0bfff11f542486ecc833e9ddfbc29b34647794e10128b870d69ffab8583
+    name: jupyter
+    type: application
+    urls:
+    - https://github.com/nicklausbrown/jupyter-kubernetes/releases/download/jupyter-0.4.3/jupyter-0.4.3.tgz
+    version: 0.4.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-04-20T00:57:57.249302801Z"
     description: A Helm chart for Kubernetes
     digest: 3df0801151595bd6a6140fe4754c47a41ba1d116b635b5c8abc9e25088bf4f1e
@@ -71,4 +81,4 @@ entries:
     urls:
     - https://github.com/nicklausbrown/jupyter-kubernetes/releases/download/jupyter-0.1.0/jupyter-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-20T00:57:57.249423517Z"
+generated: "2024-04-20T01:43:08.351235931Z"
