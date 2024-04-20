@@ -28,7 +28,6 @@ jupyter:
         paths:
           - path: /
             pathType: ImplementationSpecific
-            svcPort: 8888
           - path: /tensorboard
             pathType: ImplementationSpecific
             svcPort: 6006
