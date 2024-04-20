@@ -34,6 +34,9 @@ spec:
             - name: jupyter
               containerPort: 8888
               protocol: TCP
+            - name: tensorboard
+              containerPort: 6006
+              protocol: TCP
           livenessProbe:
             httpGet:
               path: /api/status
