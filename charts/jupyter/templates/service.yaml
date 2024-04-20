@@ -14,5 +14,9 @@ spec:
       {{- if .Values.service.nodePort }}
       nodePort: {{ .Values.service.nodePort }}
       {{ end }}
+    - port: 6006
+      targetPort: tensorboard
+      protocol: TCP
+      name: tensorboard
   selector:
     {{- include "jupyter.selectorLabels" . | nindent 4 }}
