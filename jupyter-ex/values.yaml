@@ -6,7 +6,7 @@ jupyter:
 
   resources:
     limits:
-      memory: 96Gi
+      memory: 148Gi
       nvidia.com/gpu: 2
     requests:
       memory: 8Gi
