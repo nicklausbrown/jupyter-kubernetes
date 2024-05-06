@@ -2,7 +2,24 @@ jupyter:
   image:
     repository: nickbrown1/jupyter-pytorch-gpu
     pullPolicy: IfNotPresent
-    tag: "5034811708"
+    tag: "8135053194"
+
+  resources:
+    limits:
+      memory: 96Gi
+      nvidia.com/gpu: 2
+    requests:
+      memory: 8Gi
+      cpu: '12'
+
+  envVariables:
+    - name: JUPYTER_ENABLE_LAB
+      value: "yes"
+    - name: PASSWORD
+    - name: GRANT_SUDO
+      value: "yes"
+    - name: JUPYTER_PORT
+      value: "8888"
 
   volumes:
     - name: model-volume
@@ -24,14 +41,6 @@ jupyter:
           - path: /
             pathType: ImplementationSpecific
     tls: [ ]
-
-  resources:
-    limits:
-      memory: 32Gi
-      nvidia.com/gpu: 2
-    requests:
-      memory: 8Gi
-      cpu: 12
 
   nodeSelector:
     nvidia.com/gpu.product: "NVIDIA-GeForce-RTX-4090"
