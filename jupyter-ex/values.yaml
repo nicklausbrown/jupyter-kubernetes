@@ -24,12 +24,17 @@ jupyter:
   volumes:
     - name: model-volume
       hostPath:
-        readOnly: true
         path: /mnt/nvme0/models/
+    - name: lab-volume
+      hostPath:
+        path: /mnt/nvme0/k3s/apps/jupyter
 
   volumeMounts:
     - mountPath: /app/models
       name: model-volume
+      # FIXME: make sure this is changed to the active user!!
+    - mountPath: /home/jovyan/work
+      name: lab-volume
 
   ingress:
     enabled: true
