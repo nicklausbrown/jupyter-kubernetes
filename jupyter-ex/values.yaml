@@ -20,6 +20,8 @@ jupyter:
       value: "yes"
     - name: JUPYTER_PORT
       value: "8888"
+    - name: NOTEBOOK_ARGS
+      value: "--user root"
 
   volumes:
     - name: model-volume
