@@ -51,7 +51,7 @@ spec:
           {{- end }}
           {{- if .Values.rootUser }}
           securityContext:
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
             runAsUser: 0
           {{- end }}
           resources:
